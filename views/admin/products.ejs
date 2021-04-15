@@ -1,0 +1,70 @@
+<%- include('../layout/adminheader') ; -%>
+    <h2 class="page-title">Products</h2>
+    <a href="/admin/products/add-product" class="btn btn-primary">Add a new Product</a>
+    <br></br>
+
+    <% if(count> 0 ) { %>
+        <table class="table table-striped ">
+
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th>Product Image</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
+
+                </tr>
+            </thead>
+            <tbody>
+                <% for(var i=0 ; i <p.length ; i++ ){ %>
+                    <tr>
+                        <td>
+                            <%= p[i].title %>
+                        </td>
+                        <td>$
+                            <%= parseFloat(p[i].price).toFixed(2) %>
+                        </td>
+                        <td>
+                            <%= p[i].category %>
+                        </td>
+                        <td>
+                            <% if(p[i].image== "") { %>
+                                <img src="/images/noimage.png" width="100">
+                                <% }  else { %>
+                                    <img src="/product_images/<%= p[i]._id %>/<%= p[i].image %>" width="100">
+                                    <% } %>
+                        </td>
+                        <td><a href="/admin/products/edit-product/<%= p[i]._id %>">Edit</a></td>
+                        <td><a class="confirmDeletion" href="/admin/products/delete-product/<%= p[i]._id %>">Delete</a></td>
+                    </tr>
+                    <% } %>
+            </tbody>
+
+
+
+
+
+
+
+
+
+        </table>
+
+        <% } else {%>
+            <h3 class="text-center">No products</h3>
+            <% } %>
+
+
+                </div>
+
+
+                <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+                <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+                </body>
+
+
+                </html>

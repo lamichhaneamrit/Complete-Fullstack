@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body>
+    <div class="header-bottom-w3ls">
+        <div class="container">
+            <div class="col-md-7 navigation-agileits">
+                <nav class="navbar navbar-default">
+                    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                        <ul class="nav navbar-nav ">
+                            <li><a href="/" class="hyper "><span>Home</span></a></li>
+                            <% if(c === "Gabelstapler") { %>
+                                <li class="active"><a href="/products/cat/Gabelstapler" class="hyper"><span>Gabelstapler</span></a></li>
+                                <li class=""><a href="/products/cat/Anbaügerate" class="hyper"><span>Anbaugerate</span></a></li>
+                                <li class=""><a href="/products" class="hyper"><span>Products</span></a></li>
+                                <% } else if(c === "Anbaugerate") { %>
+                                    <li class=""><a href="/products/cat/Gabelstapler" class="hyper"><span>Gabelstapler</span></a></li>
+                                    <li class="active"><a href="/products/cat/Anbaugerate" class="hyper"><span>Anbaugerate</span></a></li>
+                                    <li class=""><a href="/products" class="hyper"><span>Products</span></a></li>
+                                    <% } else { %>
+                                        <li class=""><a href="/products/cat/Gabelstapler" class="hyper"><span>Gabelstapler</span></a></li>
+                                        <li class=""><a href="/products/cat/Anbaugerate" class="hyper"><span>Anbaugerate</span></a></li>
+                                        <li class="active"><a href="/products" class="hyper"><span>Products</span></a></li>
+                                        <% } %>
+                                            <li><a href="contact.html" class="hyper"><span>About Us</span></a></li>
+                                            <li><a href="contact.html" class="hyper"><span>Contact us</span></a></li>
+                                            <li></li>
+                                            <ul class="nav navbar-nav">
+                                                <li>
+                                                    <a href="/cart/checkout">My Cart(
+                              <% if(typeof cart !== "undefined") { %>
+                              <%= cart.length %>
+                              <% } else { %>
+                              0
+                              <% } %>
+                              )</a>
+                                                </li>
+                                            </ul>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-md-4 search-agileinfo">
+                <form action="#" method="post">
+                    <input type="search" name="Search" placeholder="Search for a Product..." required="">
+                    <button type="submit" class="btn btn-default search" aria-label="Left Align">
+                  <i class="fa fa-search" aria-hidden="true"> </i>
+                  </button>
+                </form>
+            </div>
+            <div class="col-md-1 cart-wthree">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container">
+            <ol class="breadcrumb breadcrumb-arrow">
+                <li><a href="/">Home</a></li>
+                <li><a href="/products">Products</a></li>
+                <li>
+                    <a href="/products/cat/<%= c %>">
+                        <%= c %>
+                    </a>
+                </li>
+                <li>
+                    <a href="/products/cat/<%= c %>/<%= b %>">
+                        <%= b %>
+                    </a>
+                </li>
+            </ol>
+            <div class="col-md-4 w3ls_forklift_grid_left">
+                <div class="w3ls_forklift_grid_left_grid">
+                    <h3>Categories</h3>
+                    <div class="w3ls_forklift_grid_left_grid_sub">
+                        <div class="ecommerce_forklift-type">
+                            <ul class="list-group">
+                                <li class="list-group-item"><a href="/products">All products</a></li>
+                                <% for(var i=0 ; i < r1.length;i++) { %>
+                                    <li class="list-group-item">
+                                        <a href="/products/cat/<%= r1[i].title %>">
+                                            <%= r1[i].title %>
+                                        </a>
+                                    </li>
+                                    <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3ls_forklift_grid_left_grid">
+                    <h3>Type</h3>
+                    <div class="w3ls_forklift_grid_left_grid_sub">
+                        <div class="ecommerce_forklift-type">
+                            <ul class="list-group">
+                                <% for(var i=0 ; i < t1.length;i++) { %>
+                                    <li class="list-group-item">
+                                        <a href="/products/type/<%= t1[i].title %>">
+                                            <%= t1[i].title %>
+                                        </a>
+                                    </li>
+                                    <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="w3ls_forklift_grid_left_grid">
+                    <h3>Brand</h3>
+                    <div class="w3ls_forklift_grid_left_grid_sub">
+                        <div class="ecommerce_forklift-type">
+                            <ul class="list-group">
+                                <% for(var i=0 ; i < b1.length;i++) { %>
+                                    <li class="list-group-item">
+                                        <a href="/products/cat/<%= c %>/<%= b1[i].title %>">
+                                            <%= b1[i].title %>
+                                        </a>
+                                    </li>
+                                    <% } %>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8 col-sm-8 anbaugerate-forklift">
+                <div class="anbaugerate-set1">
+                    <% for(var i = 0 ; i < p1.length; i++){ %>
+                        <% if(p1[i].ratingNumber != 0) { %>
+                            <% var total = p1[i].ratingSum/p1[i].ratingNumber.length %>
+                                <% }  else {%>
+                                    <% var total = 0%>
+                                        <% } %>
+                                            <% if(b === p1[i].brand) { %>
+                                                <div class="col-md-4 anbaugerate-grids wp6 animated wow slideInUp" data-wow-delay=".5s">
+                                                    <a href="/products/<%= p1[i].category %>/<%= p1[i].title %>">
+                                                        <div class="product-img">
+                                                            <img src="/product_images/<%= p1[i]._id %>/<%= p1[i].image %>" alt="" />
+                                                            <div class="p-mask">
+                                                                <a href="/cart/add/<%= p1[i].title %>">
+                                                                    <button type="submit" class="w3ls-cart pw3ls-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button></a>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                    <h5 style="align:center" class="star" data-score="<%= total %>"></h5>
+                                                    <h4><strong>Title:</strong>
+                                                        <%= p1[i].title %>
+                                                    </h4>
+                                                    <h4><strong>Brand: </strong>
+                                                        <%= p1[i].brand %>
+                                                    </h4>
+                                                    <% if(p1[i].discount) { %>
+                                                        <div style="margin-bottom:30px" class="p-mask">
+                                                            <span>
+                           <h5><strike >$<%= p1[i].price %></strike>&nbsp; &nbsp; $<%= p1[i].discount %></h5>
+                           <h5 style="float:right"></h5>
+                        </span>
+                                                        </div>
+                                                        <% } else { %>
+                                                            <h5 style="margin-bottom:30px">$
+                                                                <%= p1[i].price %>
+                                                            </h5>
+                                                            <% } %>
+                                                </div>
+                                                <% } %>
+                                                    <% } %>
+                                                        <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')
+    </script>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="js/ie10-viewport-bug-workaround.js"></script>
+    <script src="/js/jquery.raty.js"></script>
+    <script src="/js/jquery2.js"></script>
+    <script>
+        $(document).ready(function() {
+            $.fn.raty.defaults.path = '/images/'
+            $('.star').raty({
+                readOnly: true,
+
+                score: function(data) {
+                    return $(this).attr('data-score')
+                }
+            })
+
+
+        })
+    </script>
+</body>
+
+</html>

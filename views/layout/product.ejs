@@ -1,0 +1,383 @@
+<!--A Design by W3layouts
+   -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- css -->
+    <link href="/public/css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link href="/public/css/bootstrap.min.css" rel="stylesheet">
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <link href="/public/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <script src="public/js/ie-emulation-modes-warning.js"></script>
+    <!-- Custom styles for this template -->
+    <link href="public/css/navbar-fixed-top.css" rel="stylesheet">
+    <link rel="stylesheet" href="/public/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="/public/css/font-awesome.min.css" type="text/css" media="all" />
+    <!--// css -->
+    <!-- font -->
+    <link href="//fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+    <!-- //font -->
+    <script src="public/js/jquery-1.11.1.min.js"></script>
+    <script src="public/js/bootstrap.js"></script>
+    <!--flex slider-->
+    <script defer src="public/js/jquery.flexslider.js"></script>
+    <link rel="stylesheet" href="public/css/flexslider.css" type="text/css" media="screen" />
+    <script>
+        // Can also be used with $(document).ready()
+        $(window).load(function() {
+            $('.flexslider').flexslider({
+                animation: "slide",
+                controlNav: "thumbnails"
+            });
+        });
+    </script>
+    <!--flex slider-->
+
+    <script src="/public/js/imagezoom.js"></script>
+    <!-- //js -->
+</head>
+
+<body>
+    <div class="header-top-w3layouts">
+        <div class="container">
+            <div class="col-md-6 logo-w3">
+                <a href="index.html">
+                    <img src="images/logo2.png" alt=" " />
+                    <h1>Forklift1<span>Shopping</span></h1>
+                </a>
+            </div>
+            <div class="col-md-6 phone-w3l">
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="header-bottom-w3ls">
+        <div class="container">
+            <div class="col-md-7 navigation-agileits">
+                <nav class="navbar navbar-default">
+                    <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
+                        <ul class="nav navbar-nav ">
+                            <li><a href="/" class="hyper "><span>Home</span></a></li>
+                            <li>
+                                <a href="/cart/checkout">My Cart(
+                           <% if(typeof cart !== "undefined") { %>
+                           <%= cart.length %>
+                           <% } else { %>
+                           0
+                           <% } %>
+                           )</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+            <div class="col-md-4 search-agileinfo">
+                <form action="#" method="post">
+                    <input type="search" name="Search" placeholder="Search for a Product..." required="">
+                    <button type="submit" class="btn btn-default search" aria-label="Left Align">
+                  <i class="fa fa-search" aria-hidden="true"> </i>
+                  </button>
+                </form>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="products">
+        <div class="container">
+            <div class="single-page">
+                <div class="single-page-row" id="detail-21">
+                    <div class="col-md-6 single-top-left">
+                        <div class="flexslider">
+                            <ul class="slides">
+                                <li data-thumb="/product_images/<%= p._id %>/<%= p.image %>">
+                                    <div class="thumb-image detail_images"> <img src="/product_images/<%= p._id %>/<%= p.image %>" data-imagezoom="false" class="img-responsive" alt=""> </div>
+                                </li>
+                                <% for(var i= 0; i< 3 ; i++){ %>
+                                    <li data-thumb="/product_images/<%= p._id %>/gallery/thumbs/<%= g[i] %>">
+                                        <div class="thumb-image detail_images"> <img src="/product_images/<%= p._id %>/gallery/thumbs/<%= g[i] %>" data-imagezoom="false" class="img-responsive" alt=""> </div>
+                                    </li>
+                                    <% } %>
+                                        <!--
+                              -->
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-6 single-top-right">
+                        <h3 class="item_name">
+                            <%= p.title %>
+                        </h3>
+                        <span>
+                        <p><Strong>Brand:</Strong> <%= p.brand %></p>
+                        <p><Strong>Type:</Strong> <%= p.type2 %></p>
+                     </span>
+                        <p><strong>Processing Time:</strong> Item will be shipped out within 2-3 working days. </p>
+                        <div class="single-rating">
+                            <ul>
+                                <% for(var i = 0 ;i < p.ratingNumber.length; i++){ %>
+                                    <% var count  = i + 1 %>
+                                        <% var total = p.ratingSum/count %>
+                                            <% } %>
+                                                <li>
+                                                    <p class="star" data-score="<%= total %>"></p>
+                                                </li>
+                                                (
+                                                <%= total %>)
+                                                    <li class="rating">
+                                                        <%= p.ProductRating.length %> reviews</li>
+                                                    <% if(log) { %>
+                                                        <li><a href="/product/<%= p._id %>">Add your review</a></li>
+                                                        <% } else { %>
+                                                            <li><a href="/auth/login">Login to Add Review</a></li>
+                                                            <% } %>
+                            </ul>
+                        </div>
+                        <div class="single-price">
+                            <ul>
+                                <% if(p.discount) { %>
+                                    <li>
+                                        <%= p.discount %>
+                                    </li>
+                                    <li><del>$<%= p.price %></del></li>
+                                    <% const t = (p.discount/p.price)*100 %>
+                                        <li><span class="w3off"><%= Math.round(t) %>% OFF</span></li>
+                                        <li>Ends on: Oct,15th</li>
+                                        <% }  else  { %>
+                                            <li>$
+                                                <%= p.price %>
+                                            </li>
+                                            <% } %>
+                            </ul>
+                        </div>
+                        <hr>
+                        <h5>OverView</h5>
+                        <p class="single-price-text">
+                            <%- p.desc %>
+                        </p>
+                        <hr>
+                        <input type="hidden" name="cmd" value="_cart" />
+                        <input type="hidden" name="add" value="1" />
+                        <input type="hidden" name="w3ls1_item" value="Handbag" />
+                        <input type="hidden" name="amount" value="540.00" />
+                        <a href="/cart/add/<%= p.title %>">
+                            <button type="submit" class="w3ls-cart "><i class="fa fa-cart-plus" aria-hidden="true"></i> Add to cart</button></a>
+                        <button class="w3ls-cart w3ls-cart-like"><i class="fa fa-heart-o" aria-hidden="true"></i> Add to Wishlist</button>
+                    </div>
+                    <div class="clearfix"> </div>
+                </div>
+            </div>
+            <!-- collapse-tabs -->
+            <div class="collpse tabs">
+                <h3 class="w3ls-title">About this item</h3>
+                <div class="panel-group collpse" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <i class="fa fa-file-text-o fa-icon" aria-hidden="true"></i> Description <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <%- p.desc %>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading" role="tab" id="headingOne">
+                            <h4 class="panel-title">
+                                <a class="pa_italic" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                    <i class="fa fa-file-text-o fa-icon" aria-hidden="true"></i> Aditional Information <span class="fa fa-angle-down fa-arrow" aria-hidden="true"></span> <i class="fa fa-angle-up fa-arrow" aria-hidden="true"></i>
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
+                            <div class="panel-body">
+                                <%- p.desc %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- //collapse -->
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="row">
+                <h3 style="background:lightblue; padding:20px" class="text-center">Product You May Like</h3>
+                <div class="col-md-9">
+                </div>
+                <div class="col-md-3">
+                    <!-- Controls -->
+                    <div class="controls pull-right hidden-xs">
+                        <a class="left fa fa-chevron-left btn btn-success" href="#carousel-example" data-slide="prev"></a>
+                        <a class="right fa fa-chevron-right btn btn-success" href="#carousel-example" data-slide="next"></a>
+                    </div>
+                </div>
+            </div>
+            <div id="carousel-example" class="carousel slide hidden-xs" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <div class="item active">
+                        <div class="row">
+                            <% for(var i =0;i< p2.length ; i++){ %>
+                                <% if(p.title !== p2[i].title && p.brand === p2[i].brand) { %>
+                                    <% if(p2[i].ratingNumber != 0) { %>
+                                        <% var total = p2[i].ratingSum/p2[i].ratingNumber.length %>
+                                            <% }  else {%>
+                                                <% var total = 0%>
+                                                    <% } %>
+                                                        <div class="col-sm-3">
+                                                            <div class="col-item">
+                                                                <div class="photo">
+                                                                    <a href="/products/<%= p2[i].category %>/<%= p2[i].title %>">
+                                 <img src="/product_images/<%= p2[i]._id %>/<%= p2[i].image %>" alt=""  width="400px" height="300px" />
+                                 </a>
+                                                                </div>
+                                                                <div class="info">
+                                                                    <div class="row">
+                                                                        <div class="price col-md-6">
+                                                                            <h5>
+                                                                                <%= p2[i].title %>
+                                                                            </h5>
+                                                                            <% if(p2[i].discount){ %>
+                                                                                <h5 class="price-text-color">
+                                                                                    <del><%=p2[i].price %></del> $
+                                                                                    <%= p2[i].discount %>
+                                                                                </h5>
+                                                                                <% } else { %>
+                                                                                    <h5 class="price-text-color">
+                                                                                        $
+                                                                                        <%= p2[i].price %>
+                                                                                    </h5>
+                                                                                    <% } %>
+                                                                        </div>
+                                                                        <p style=" width:10px; display:inline !important" class="star" data-score="<%= total %>"></p>
+                                                                    </div>
+                                                                    <div class="separator clear-left">
+                                                                        <p class="btn-add">
+                                                                            <i class="fa fa-shopping-cart"></i><a href="/cart/add/<%= p2[i].title %>" class="hidden-sm">Add to cart</a>
+                                                                        </p>
+                                                                        <p class="btn-details">
+                                                                            <i class="fa fa-list"></i><a href="/products/<%= p2[i].category %>/<%= p2[i].title %>" class="hidden-sm">More details</a>
+                                                                        </p>
+                                                                    </div>
+                                                                    <div class="clearfix">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <% } %>
+                                                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div style="background:lightblue; padding:20px" class="text-center">
+        <h3>Product Rating</h3>
+    </div>
+    <br>
+    <div style="width:auto " class="rating-block">
+        <h4>Average user rating</h4>
+        <% for(var i = 0 ;i < p.ratingNumber.length; i++){ %>
+            <% var count  = i + 1 %>
+                <% var total = p.ratingSum/count %>
+                    <% } %>
+                        <h2 class="bold padding-bottom-7">
+                            <%= total %> <small>/ 5</small></h2>
+                        <h5 style="align:center" class="star" data-score="<%= total %>"></h5>
+    </div>
+    <div class="row">
+        <div style="background:yellow" class="col-sm-8">
+            <hr/>
+            <div style="background:blue" class="review-block">
+                <% for(var i=0 ; i < p.ProductRating.length; i++) { %>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <img src="/images/avatar.jpg" class="img-rounded" width='100px' height="100px">
+                            <div class="review-block-name">
+                                <h3>
+                                    <%= p.ProductRating[i].username %>
+                                </h3>
+                            </div>
+                            <div class="review-block-date">
+                                <%= p.ProductRating[i].date %><br/></div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div style="align:center" class="star" data-score="<%= p.ProductRating[i].userRating %>"></div>
+                            <div class="review-block-title" style="font-weight:bold">
+                                <%= p.ProductRating[i].Title %>
+                            </div>
+                            <hr>
+                            <div class="review-block-description">
+                                <%= p.ProductRating[i].userReview %>
+                            </div>
+                            <hr>
+                        </div>
+                    </div>
+                    <hr>
+                    <% } %>
+                        <hr/>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!-- /container -->
+
+    <body>
+        <!-- Bootstrap core JavaScript
+            ================================================== -->
+        <!-- Placed at the end of the document so the pages load faster -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>
+            window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')
+        </script>
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+        <!-- Bootstrap Core JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        <script src="js/ie10-viewport-bug-workaround.js"></script>
+        <script src="/js/jquery.raty.js"></script>
+        <script src="/js/jquery2.js"></script>
+        <script src="public/js/ie10-viewport-bug-workaround.js"></script>
+        <script src="/public/js/jquery.raty.js"></script>
+        <script src="/public/js/jquery2.js"></script>
+        <script>
+            $(document).ready(function() {
+                $.fn.raty.defaults.path = '/images/'
+                $('.star').raty({
+                    readOnly: true,
+
+                    score: function(data) {
+                        return $(this).attr('data-score')
+                    }
+                })
+
+
+            })
+        </script>
+        <!-- //cart-js -->
+    </body>
+
+
+</html>
