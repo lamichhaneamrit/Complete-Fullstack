@@ -128,7 +128,7 @@ exports.registerHandle = (req, res) => {
                 const accessToken = oauth2Client.getAccessToken()
 
                 const token = jwt.sign({ name, email, password, password2 }, JWT_KEY, { expiresIn: '30m' });
-                const CLIENT_URL = `http://localhost:3006`;
+                const CLIENT_URL = 'http://' + req.headers.host;
 
                 const output = ` <h2>You have one request from the following person: </h2> <br>
                 FullName : ${name} <br>
@@ -289,7 +289,7 @@ exports.forgotPassword = (req, res) => {
                 const accessToken = oauth2Client.getAccessToken()
 
                 const token = jwt.sign({ _id: user._id }, JWT_RESET_KEY, { expiresIn: '30m' });
-                const CLIENT_URL = `http://localhost:3006`;
+                const CLIENT_URL = 'http://' + req.headers.host;
                 const output = `
                 <h2>Please click on below link to reset your account password</h2>
                 <p>${CLIENT_URL}/auth/forgot/${token}</p>
@@ -318,10 +318,10 @@ exports.forgotPassword = (req, res) => {
 
                         // send mail with defined transport object
                         const mailOptions = {
-                            from: '"Auth Admin" <nodejsa@gmail.com>', // sender address (This works too , but better provide your own )
+                            from: '"Forklift1 " <nodejsa@gmail.com>', // sender address (This works too , but better provide your own )
                             to: email, // list of receivers
 
-                            subject: "Account Password Reset: NodeJS Auth ✔", // Subject line
+                            subject: "Account Password Reset: Forklift1 ✔", // Subject line
                             html: output, // html body
                         };
 
