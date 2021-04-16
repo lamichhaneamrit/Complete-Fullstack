@@ -4,12 +4,14 @@ var Products = require('../models/product-model')
 var mkdirp = require('mkdirp')
 var fs = require('fs-extra')
 var resizeImg = require('resize-img')
+const { ensureAuthenticated } = require('../config/checkAuth')
+
 
 
 
 module.exports = (app) => {
 
-    app.get('/cart/add/:product', function(req, res) {
+    app.get('/cart/add/:product', ensureAuthenticated, function(req, res) {
 
         var slug = req.params.product;
 
@@ -65,7 +67,7 @@ module.exports = (app) => {
         });
 
     });
-    app.get('/cart/checkout', (req, res) => {
+    app.get('/cart/checkout', ensureAuthenticated, (req, res) => {
         if (req.session.cart && req.session.cart.length == 0) {
             delete req.session.cart
             res.redirect('/cart/checkout')
@@ -76,7 +78,7 @@ module.exports = (app) => {
         }
     })
 
-    app.get('/cart/update/:product', (req, res) => {
+    app.get('/cart/update/:product', ensureAuthenticated, (req, res) => {
         var title = req.params.product
         var cart = req.session.cart
         var action = req.query.action
@@ -108,7 +110,7 @@ module.exports = (app) => {
             res.redirect('/cart/checkout')
         })
     })
-    app.get('/cart/clear', (req, res) => {
+    app.get('/cart/clear', ensureAuthenticated, (req, res) => {
 
         delete req.session.cart
         res.redirect('/cart/checkout')
