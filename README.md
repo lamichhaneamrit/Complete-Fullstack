@@ -52,7 +52,7 @@ Add products\
 ![alt text]( https://github.com/lamichhaneamrit/Complete-Fullstack/blob/master/add_products.JPG)\
 AddedProducts in main page\
 Add products\
-![alt text]( https://github.com/lamichhaneamrit/Complete-Fullstack/blob/master/ added-producted-in-main-page.JPG)\
+![alt text]( https://github.com/lamichhaneamrit/Complete-Fullstack/blob/master/added-producted-in-main-page.JPG)\
 Description of products when clicked\
 ![alt text]( https://github.com/lamichhaneamrit/Complete-Fullstack/blob/master/descriptionofproductadded.JPG)\
 Products after added to cart
