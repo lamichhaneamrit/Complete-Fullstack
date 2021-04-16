@@ -26,7 +26,6 @@ After it started running it should look like following:
 #Login and registration(it is from previous project )
 
 ![alt text]( https://github.com/lamichhaneamrit/Complete-Fullstack/blob/master/login.JPG)\
-
 After Registration, It will redirect to login page :need to activated your account first\
 ![alt text](https://github.com/lamichhaneamrit/User_registration/blob/master/activate_link_from_user.PNG)\
 After Activiating your account\
@@ -43,10 +42,8 @@ The password is byencrypted and all the datas are also strored in the database a
 ![alt text](https://github.com/lamichhaneamrit/User_registration/blob/master/database%20ready.PNG)\
 Add categories\
 ![alt text]( https://github.com/lamichhaneamrit/Complete-Fullstack/blob/master/addcategories.JPG)\
-
 Add types\
 ![alt text]( https://github.com/lamichhaneamrit/Complete-Fullstack/blob/master/addtype.JPG)\
-
 Add brands\
 ![alt text]( https://github.com/lamichhaneamrit/Complete-Fullstack/blob/master/addbrand.JPG)\
 Components of add products and also can be added or removed as per need\
