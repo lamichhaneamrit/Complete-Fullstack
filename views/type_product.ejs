@@ -8,10 +8,14 @@
                 <nav class="navbar navbar-default">
                     <div class="collapse navbar-collapse" id="bs-megadropdown-tabs">
                         <ul class="nav navbar-nav ">
-                            <li class=" "><a href="/" class="hyper "><span>Home</span></a></li>
-                            <li><a href="/products/cat/Men" class="hyper"><span>Men</span></a></li>
-                            <li><a href="/products/cat/Women" class="hyper"><span>Women</span></a></li>
-                            <li><a href="/products" class="hyper"><span>Products</span></a></li>
+                            <li><a href="/products/cat/GabelStapler" class="hyper"><span>GabelStapler</span></a></li>
+                            <li><a href="/products/cat/Anbaugerate" class="hyper"><span>Anbaugerate</span></a></li>
+                            <li><a href="/products/cat/Arbeitsbühnen" class="hyper"><span>Arbeitsbühnen</span></a></li>
+                            <li><a href="/products/cat/Battarie" class="hyper"><span>Battarie</span></a></li>
+                            <li><a href="/products/cat/Lädegeräte" class="hyper"><span>Lädegeräte</span></a></li>
+                            <li><a href="/products/cat/Reinigungstechnik" class="hyper"><span>Reinigungstechnik</span></a></li>
+                            <li><a href="/products/cat/Handler" class="hyper"><span>Handler</span></a></li>
+                            <li class="active"><a href="/products" class="hyper"><span>Products</span></a></li>
                             <ul class="nav navbar-nav">
                                 <li>
                                     <a href="/cart/checkout">My Cart(
@@ -51,11 +55,11 @@
                     </a>
                 </li>
             </ol>
-            <div class="col-md-4 w3ls_dresses_grid_left">
-                <div class="w3ls_dresses_grid_left_grid">
+            <div class="col-md-4 w3ls_forklift_grid_left">
+                <div class="w3ls_forklift_grid_left_grid">
                     <h3>Categories</h3>
-                    <div class="w3ls_dresses_grid_left_grid_sub">
-                        <div class="ecommerce_dres-type">
+                    <div class="w3ls_forklift_grid_left_grid_sub">
+                        <div class="ecommerce_forklift-type">
                             <ul class="list-group">
                                 <li class="list-group-item"><a href="/products">All products</a></li>
                                 <% for(var i=0 ; i < r1.length;i++) { %>
@@ -69,10 +73,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="w3ls_dresses_grid_left_grid">
+                <div class="w3ls_forklift_grid_left_grid">
                     <h3>Type</h3>
-                    <div class="w3ls_dresses_grid_left_grid_sub">
-                        <div class="ecommerce_dres-type">
+                    <div class="w3ls_forklift_grid_left_grid_sub">
+                        <div class="ecommerce_forklift-type">
                             <ul class="list-group">
                                 <% for(var i=0 ; i < t1.length;i++) { %>
                                     <li class="list-group-item">
@@ -85,10 +89,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="w3ls_dresses_grid_left_grid">
+                <div class="w3ls_forklift_grid_left_grid">
                     <h3>Brand</h3>
-                    <div class="w3ls_dresses_grid_left_grid_sub">
-                        <div class="ecommerce_dres-type">
+                    <div class="w3ls_forklift_grid_left_grid_sub">
+                        <div class="ecommerce_forklift-type">
                             <ul class="list-group">
                                 <% for(var i=0 ; i < b1.length;i++) { %>
                                     <li class="list-group-item">
@@ -102,15 +106,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-8 col-sm-8 women-dresses">
-                <div class="women-set1">
+            <div class="col-md-8 col-sm-8 anbaugerate-forklift">
+                <div class="anbaugerate-set1">
                     <% for(var i = 0 ; i < p1.length; i++){ %>
                         <% if(p1[i].ratingNumber != 0) { %>
                             <% var total = p1[i].ratingSum/p1[i].ratingNumber.length %>
                                 <% }  else {%>
                                     <% var total = 0%>
                                         <% } %>
-                                            <div class="col-md-4 women-grids wp6 animated wow slideInUp" data-wow-delay=".5s">
+                                            <div class="col-md-4 anbaugerate-grids wp6 animated wow slideInUp" data-wow-delay=".5s">
                                                 <a href="/products/<%= p1[i].category %>/<%= p1[i].title %>">
                                                     <div class="product-img">
                                                         <img src="/product_images/<%= p1[i]._id %>/<%= p1[i].image %>" alt="" width="400px" height="300px" />
