@@ -57,6 +57,11 @@ Description of products when clicked\
 ![alt text]( https://github.com/lamichhaneamrit/Complete-Fullstack/blob/master/descriptionofproductadded.JPG)\
 Products after added to cart
 ![alt text]( https://github.com/lamichhaneamrit/Complete-Fullstack/blob/master/addedtocart.JPG)\and can be checked out
+###
+Some imporovised version can be also run via heroku :
+https://latest-ap.herokuapp.com/
+The css and the font-end doenot look ideal (As, the time interval was very short, but working on it )
+##
 
 
 
