@@ -1,0 +1,52 @@
+<%- include ('../layout/headermain') -%>
+    <h2 class="page-title">brand</h2>
+    <a href="/admin/brand/add-brand" class="btn btn-primary">Add a new brand</a>
+    <br></br>
+
+
+    <table class="table table-striped ">
+
+        <thead>
+            <tr>
+                <th>Brand</th>
+                <th>Edit</th>
+                <th>Delete</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i=0 ; i <brand.length ; i++ ){ %>
+                <tr>
+                    <td>
+                        <%= brand[i].title %>
+                    </td>
+                    <td><a href="/admin/brand/edit-brand/<%= brand[i]._id %>">Edit</a></td>
+                    <td><a class="confirmDeletion" href="/admin/brand/delete-brand/<%= brand[i]._id %>">Delete</a></td>
+                </tr>
+                <% } %>
+        </tbody>
+
+
+
+
+
+
+
+
+
+    </table>
+
+
+
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    </body>
+    <%- include ('../layout/footer')  -%>
+
+        </html>

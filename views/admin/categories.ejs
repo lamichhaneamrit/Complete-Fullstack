@@ -1,0 +1,61 @@
+<%- include('../layout/headermain') -%>
+    <h2 class="page-title">Categories</h2>
+    <a href="/admin/categories/add-category" class="btn btn-primary">Add a new categories</a>
+    <br></br>
+
+
+    <table class="table table-striped ">
+
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Edit</th>
+                <th>Delete</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            <% for(var i=0 ; i <cat.length ; i++ ){ %>
+                <tr>
+                    <td>
+                        <%= cat[i].title %>
+                    </td>
+                    <td><a href="/admin/categories/edit-category/<%= cat[i]._id %>">Edit</a></td>
+                    <td><a class="confirmDeletion" href="/admin/categories/delete-category/<%= cat[i]._id %>">Delete</a></td>
+                </tr>
+                <% } %>
+        </tbody>
+
+
+
+
+
+
+
+
+
+    </table>
+
+
+
+
+    </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+    </body>
+    <style>
+        table,
+        tbody {
+            background-color: white;
+        }
+        
+        body {
+            background-color: red;
+        }
+    </style>
+
+    </html>

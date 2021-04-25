@@ -1,0 +1,49 @@
+<div class="row mt-5">
+    <div class="col-md-6 m-auto">
+        <div class="card card-body text-center">
+            <h1 class="mb-3">
+                <img src="../assets/img/forklift1.jpg" alt="icon" width="20%" />
+            </h1>
+            <h2>
+                Register New User
+            </h2>
+            <%- include ("./messages") %>
+                <form action="/auth/register" enctype="multipart/form-data" method="POST">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="name" id="name" name="name" required class="form-control" placeholder="Enter Name" value="<%= typeof name != 'undefined' ? name : '' %>" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required class="form-control" placeholder="Enter Email" value="<%= typeof email != 'undefined' ? email : '' %>" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required class="form-control" placeholder="Enter Password" value="<%= typeof password != 'undefined' ? password : '' %>" />
+                    </div>
+                    <div class="form-group">
+                        <label for="password2">Confirm Password</label>
+                        <input type="password" id="password2" name="password2" required class="form-control" placeholder="Confirm Password" value="<%= typeof password2 != 'undefined' ? password2 : '' %> " />
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="Number" id="phone" name="phone" required class="form-control" placeholder="Enter Phone Number" value="<%= typeof phone!= 'undefined' ? phone : '' %>" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="name" id="company" name="company" required class="form-control" placeholder="Enter  Company Name" value="<%= typeof company != 'undefined' ? company : '' %>" />
+                    </div>
+
+                    <div class="form-group">
+                        <label for="file">GewerbeSchein</label>
+                        <input type="file" id="file" name="file" required class="form-control" placeholder="Upload" value="<%= typeof file != 'undefined' ? file : '' %>" />
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+          Register
+        </button>
+                </form>
+                <p class="mt-4">Already have an account? <a href="/auth/login">Login</a></p>
+        </div>
+    </div>
+</div>
